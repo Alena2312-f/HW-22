@@ -1,0 +1,44 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Категория 1",
+        "description": "Описание категории 1"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Категория 2",
+        "description": "Описание категории 2"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "продукт 1",
+        "description": "описание продукта 1",
+        "image": "",
+        "category": 1,
+        "purchase_price": "1000.00",
+        "created_at": "2025-09-11T07:15:00.387Z",
+        "updated_at": "2025-09-11T07:15:00.387Z"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "продукт 2",
+        "description": "описание продукта 2",
+        "image": "products/13._Камни.jpg",
+        "category": 2,
+        "purchase_price": "2000.00",
+        "created_at": "2025-09-11T07:16:26.423Z",
+        "updated_at": "2025-09-11T07:16:26.424Z"
+    }
+}
+]
