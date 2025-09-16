@@ -28,7 +28,7 @@ class Product(models.Model):
         verbose_name="Описание", blank=True, null=True
     )  # Разрешаем пустое описание
     image = models.ImageField(
-        upload_to="products/", verbose_name="Изображение", blank=True, null=True
+        upload_to="products/photo", verbose_name="Изображение", blank=True, null=True
     )  # Каталог для загрузки изображений
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, verbose_name="Категория"
