@@ -16,7 +16,7 @@ class ContactsView(TemplateView):
 
 class ProductListView(ListView):
     model = Product
-    template_name = 'catalog/product.html'
+    template_name = 'catalog/product_list.html'
     context_object_name = 'page_obj'
     paginate_by = 3
 
