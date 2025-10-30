@@ -7,10 +7,11 @@
                     <ul class="list-unstyled">
                         <li><a href="{% url 'catalog:product' %}" class="text-white">Главная</a></li>
                         {% if user.is_authenticated %}
-                        <form method="post">{% url 'users:logout' %}" =actionform<
-                         {% csrf_token %}
-                         <button type="submit" class="btn btn-success">выйти</button>
-                        </form>
+                        <form method="post" action="{% url 'users:logout' %}" style="display: inline;">
+	                        {% csrf_token %}
+	                        <button type="submit" class="btn btn-link nav-link">Выйти
+	                        </button>
+	                    </form>
                         {% else %}
                         <li><a href="{% url 'users:login' %}" class="text-white">Вход</a></li>
                         <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
