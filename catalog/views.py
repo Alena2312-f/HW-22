@@ -56,6 +56,12 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
+    def test_func(self):
+        product = self.get_object()
+        return self.request.user == product.owner or self.request.user.has_perm(
+            "catalog.can_unpublish_product"
+        )
+
 class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     template_name = 'catalog/product_confirm_delete.html'
@@ -64,3 +70,9 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+    def test_func(self):
+        product = self.get_object()
+        return self.request.user == product.owner or self.request.user.has_perm(
+            "catalog.delete_product"
+        )
