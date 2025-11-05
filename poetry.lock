@@ -450,6 +450,24 @@ files = [
 cli = ["click (>=5.0)"]
 
 [[package]]
+name = "redis"
+version = "7.0.1"
+description = "Python client for Redis database and key-value store"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "redis-7.0.1-py3-none-any.whl", hash = "sha256:4977af3c7d67f8f0eb8b6fec0dafc9605db9343142f634041fb0235f67c0588a"},
+    {file = "redis-7.0.1.tar.gz", hash = "sha256:c949df947dca995dc68fdf5a7863950bf6df24f8d6022394585acc98e81624f1"},
+]
+
+[package.extras]
+circuit-breaker = ["pybreaker (>=1.4.0)"]
+hiredis = ["hiredis (>=3.2.0)"]
+jwt = ["pyjwt (>=2.9.0)"]
+ocsp = ["cryptography (>=36.0.1)", "pyopenssl (>=20.0.1)", "requests (>=2.31.0)"]
+
+[[package]]
 name = "sqlparse"
 version = "0.5.3"
 description = "A non-validating SQL parser."
@@ -481,4 +499,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "401ade906214d566840823a6db527c978bdd0b51781edd0dd4fe2ea0deadb419"
+content-hash = "5825f6755eae8557b57e0535f6a652b4144d1701e5edce146da94b1e560630b4"
