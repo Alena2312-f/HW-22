@@ -1,10 +1,15 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.cache import cache
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from catalog.forms import ProductForm
 from catalog.models import Product
+from catalog.services import get_product_list, get_products_by_category
+
 
 class HomeView(TemplateView):
     """Kонтроллер для отображения домашней страницы"""
@@ -25,6 +30,18 @@ class ProductListView(ListView):
         context = super().get_context_data(**kwargs)
         context['latest_products'] = Product.objects.all().order_by('-created_at')[:5]
         return context
+
+    def get_queryset(self):
+        return get_product_list()
+
+    def products_by_category(request, category_name):
+        products = get_products_by_category(category_name)
+        return render(
+            request,
+            "catalog/products_by_category.html",
+            {"products": products, "category_name": category_name},
+        )
+
 
 
 class ProductDetailView(LoginRequiredMixin, DetailView):
